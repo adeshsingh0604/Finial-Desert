@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <style>
+        :root {
+            --gray: #ededed;
+            --red: #e74c3c;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body {
+            font: 20px/30px sans-serif;
+        }
+
+        h1 {
+            padding: 0 15px;
+            margin: 10vh 0;
+            line-height: normal;
+            text-align: center;
+        }
+
+        .img-wrapper {
+            display: grid;
+            height: 100vh;
+        }
+
+        .img-wrapper div {
+            grid-column: 1;
+            grid-row: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--gray);
+            transition: opacity 0.1s;
+        }
+
+        section:last-of-type {
+            max-width: 800px;
+            padding: 0 15px;
+            margin: 15vh auto;
+        }
+
+        section:last-of-type p+p {
+            margin-top: 20px;
+        }
+
+
+        /* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+        .page-footer {
+            font-size: 16px;
+            line-height: normal;
+            text-align: center;
+            padding: 0 20px 10px;
+        }
+
+        .page-footer span {
+            color: var(--red);
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <section>
+        <!-- <h1>A Simple Fade Effect on Scroll</h1> -->
+        <div class="img-wrapper">
+
+            <div class="blackBG" style="background-image: url(desert.jpeg)">
+                <button onclick="changeFunction()">Click Me</button>
+            </div>
+
+            <div class="front" style="background-image: url(desert.png);">
+                <button onclick="changeFunction()">Click Me</button>
+            </div>
+
+            <!-- <div class="front1" style="background-image: url(hero-front.png)">
+                <button onclick="changeFunction()">Click Me</button>
+            </div> -->
+        </div>
+    </section >
+
+    <section style="background-image: url(cloud2.png); position: relative; background-attachment: fixed; background-repeat: no-repeat; background-position: center; border:2px solid red; height:50vh; width: 100%;">
+        
+    </section>
+    <footer class="page-footer">
+        <p>
+            <small>Images from <a href="https://pixabay.com/" target="_blank">Pixabay.com</a> | Text from <a
+                    href="https://en.wikipedia.org/wiki/Cinque_Terre" target="_blank">Wikipedia</a>
+            </small>
+        </p>
+        <p>
+            <small>Made with <span>❤</span> by <a href="https://georgemartsoukos.com/" target="_blank">George
+                    Martsoukos</a>
+            </small>
+        </p>
+    </footer>
+
+    <script>
+
+        // function changeFunction() {
+        //     const checkpoint = 20;
+
+        //     window.addEventListener("click", () => {
+        //         const currentScroll = window.pageYOffset;
+        //         if (currentScroll <= checkpoint) {
+        //             opacity = 1 - currentScroll / checkpoint;
+        //         } else {
+        //             opacity = 0;
+        //         }
+        //         document.querySelector(".front").style.opacity = opacity;
+        //     });
+        // }
+
+        const checkpoint = 10;
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= checkpoint ) {
+                opacity = 1 - currentScroll / checkpoint;
+            } else {
+                opacity = 0;
+            }
+            document.querySelector(".front").style.opacity = opacity;
+        });
+
+        // if (window.pageYOffset >= ){
+        //     alert("hello");
+        // }
+
+        console.log(window.pageYOffset);
+
+
+        $(window).scroll(function() {
+            var scrollPos = $(this).scrollTop();
+            $(".blackBG").css({
+                  'height' : 90 + scrollPos + '%'      
+            });
+      });
+    </script>
+</body>
+
+</html>
